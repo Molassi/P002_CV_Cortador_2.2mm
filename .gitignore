@@ -1,0 +1,53 @@
+# ".gitignore" indica a Git qué archivos o carpetas no debe subir al repositorio. Esto es útil para evitar subir:
+#       Archivos generados automáticamente (como /build/)
+#       Configuraciones locales (como .vscode/)
+#       Binarios y logs
+
+
+# Carpeta de compilación
+/build/
+
+# Archivos de configuración temporales
+/sdkconfig.old
+/sdkconfig.defaults
+
+# Archivos generados por la compilación
+*.bin
+*.elf
+*.map
+
+# Archivos de backup
+*~
+*.swp
+*.bak
+
+# Archivos de VSCode
+.vscode/
+
+# Archivos de Eclipse
+.project
+.cproject
+.settings/
+
+# Archivos de CLion
+.idea/
+cmake-build-*/
+
+# Archivos de CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Logs
+*.log
+
+# Archivos ocultos de MacOS o Linux
+.DS_Store
+Thumbs.db
+
+# Entorno Python local
+.env/
+.venv/
+__pycache__/
+*.pyc
