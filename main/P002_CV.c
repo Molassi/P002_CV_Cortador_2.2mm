@@ -113,19 +113,29 @@ void app_main(void)
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/ledc.h"
+
 #include "Motor.h"
+#include "Encoder.h"
 
 motor_handle_t motor1;
+encoder_handle_t encoder1;
 //motor_handle_t motor2;
 
 void app_main(void)
 {
-    motor_config_t config1 = {
+    motor_config_t motor1_config = {
         .pwm_gpio = 13,
         .in1_gpio = 25,
         .in2_gpio = 26,
         .pwm_channel = LEDC_CHANNEL_0,
         .pwm_timer = LEDC_TIMER_0
+    };
+
+    encoder_config_t encoder1_config = {
+        .pin_a = 34,
+        .pin_b = 35,
+        .pulses_per_rev = 600,
+        .distance_per_rev = 10.050
     };
 
     /*motor_config_t config2 = {
@@ -136,7 +146,8 @@ void app_main(void)
         .pwm_timer = LEDC_TIMER_1
     };*/
 
-    motor_init(&motor1, config1);
+    motor_init(&motor1, motor1_config);
+    encoder_init(&encoder1, encoder1_config);
     //_init(&motor2, config2);
 
     xTaskCreate(motor_task, "motor1_task", 2048, &motor1, 5, NULL);

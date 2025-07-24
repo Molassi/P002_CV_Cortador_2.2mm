@@ -642,6 +642,13 @@ D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install/local.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install/strip.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/__idf_Encoder.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/edit_cache.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/rebuild_cache.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/list_install_components.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/install.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/install/local.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/CMakeFiles/install/strip.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/main/CMakeFiles/__idf_main.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/main/CMakeFiles/edit_cache.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/main/CMakeFiles/rebuild_cache.dir

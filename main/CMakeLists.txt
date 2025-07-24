@@ -2,6 +2,6 @@
 # Componente: es una carpeta que contiene código reutilizable, por ejemplo: Motor.
 # Cada componente puede declarar: i) que archivos fuente compila(SRCS). ii)Que directorios de cabecera expone(INCLUDE_DIRS)
 # iii) Dependencias de otros compoenentes (REQUIRES, PRIV_REQUIRES)
-idf_component_register(SRCS "P002_CV.c"       # archivo principal.
-                    INCLUDE_DIRS "."          # incluir headers desde el directorio actual. (Herencia de dependencias.)
-                    REQUIRES driver Motor freertos)    # Dependencias necesarias.
+idf_component_register(SRCS "P002_CV.c"                         # archivo principal.
+                    INCLUDE_DIRS "."                            # incluir headers desde el directorio actual. (Herencia de dependencias.)
+                    REQUIRES freertos driver Motor Encoder)     # Dependencias necesarias.
