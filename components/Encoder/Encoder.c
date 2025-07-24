@@ -4,6 +4,8 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+extern bool isr_service_installed;
+
 // Manejador de interrupción para el pin A del encoder
 // Se ejecuta en ISR, por eso está en IRAM y debe ser rápida
 static void IRAM_ATTR encoder_isr_handler(void* arg)
@@ -38,7 +40,11 @@ void encoder_init(encoder_handle_t *handle, encoder_config_t config)
     gpio_pullup_en(handle->config.pin_b);
 
     // Instala el servicio de ISR (si no está instalado aún)
-    gpio_install_isr_service(0);
+    if (!isr_service_installed) {
+        gpio_install_isr_service(0);
+        isr_service_installed = true;
+        ESP_LOGI("Encoder", "ISR service instalado");
+    }
 
     // Asocia la ISR al pin A, pasando el handle como argumento
     gpio_isr_handler_add(handle->config.pin_a, encoder_isr_handler, (void*)handle);

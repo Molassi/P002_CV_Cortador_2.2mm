@@ -6,23 +6,21 @@
 #define PWM_FREQ_HZ     1000
 #define PWM_RESOLUTION  LEDC_TIMER_8_BIT
 #define PWM_MODE        LEDC_HIGH_SPEED_MODE
-#define PWM_DUTY_START  60
-#define PWM_DUTY_RUN    32
+//#define PWM_DUTY_START  60 -> ahora esta dentro de configuracion.
+//#define PWM_DUTY_RUN    32 -> ahora esta dentro de configuracion.
 #define DELAY_START_MS  10
-#define MOTOR_ON_MS     450
-#define MOTOR_OFF_MS    1000
 
-static void motor_start(motor_handle_t *motor)
+void motor_start(motor_handle_t *motor)
 {
-    ledc_set_duty(PWM_MODE, motor->config.pwm_channel, PWM_DUTY_START);
+    ledc_set_duty(PWM_MODE, motor->config.pwm_channel, motor->config.pwm_duty_start);
     ledc_update_duty(PWM_MODE, motor->config.pwm_channel);
     vTaskDelay(pdMS_TO_TICKS(DELAY_START_MS));
 
-    ledc_set_duty(PWM_MODE, motor->config.pwm_channel, PWM_DUTY_RUN);
+    ledc_set_duty(PWM_MODE, motor->config.pwm_channel, motor->config.pwm_duty_run);
     ledc_update_duty(PWM_MODE, motor->config.pwm_channel);
 }
 
-static void motor_stop(motor_handle_t *motor)
+void motor_stop(motor_handle_t *motor)
 {
     ledc_set_duty(PWM_MODE, motor->config.pwm_channel, 0);
     ledc_update_duty(PWM_MODE, motor->config.pwm_channel);
@@ -57,15 +55,3 @@ void motor_init(motor_handle_t *motor, motor_config_t config)
     gpio_set_level(config.in2_gpio, 0);
 }
 
-void motor_task(void *pvParameters)
-{
-    motor_handle_t *motor = (motor_handle_t *)pvParameters;
-
-    while (1) {
-        motor_start(motor);
-        vTaskDelay(pdMS_TO_TICKS(MOTOR_ON_MS));
-
-        motor_stop(motor);
-        vTaskDelay(pdMS_TO_TICKS(MOTOR_OFF_MS));
-    }
-}

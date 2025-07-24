@@ -9,7 +9,9 @@
 			"stdio.h": "C",
 			"freertos.h": "c",
 			"sdkconfig.h": "c",
-			"ledc.h": "c"
+			"ledc.h": "c",
+			"motor.h": "c",
+			"task.h": "c"
 		}
 	}
 }

@@ -9,6 +9,8 @@ typedef struct {
     int in2_gpio;
     int pwm_channel;
     int pwm_timer;
+    int pwm_duty_start;
+    int pwm_duty_run;
 } motor_config_t;
 
 typedef struct {
@@ -16,7 +18,8 @@ typedef struct {
 } motor_handle_t;
 
 void motor_init(motor_handle_t *motor, motor_config_t config);
-void motor_task(void *pvParameters);
+void motor_start(motor_handle_t *motor);
+void motor_stop(motor_handle_t *motor);
 
 #endif
 
