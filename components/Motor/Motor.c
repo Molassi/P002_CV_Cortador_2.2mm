@@ -6,8 +6,6 @@
 #define PWM_FREQ_HZ     1000
 #define PWM_RESOLUTION  LEDC_TIMER_8_BIT
 #define PWM_MODE        LEDC_HIGH_SPEED_MODE
-//#define PWM_DUTY_START  60 -> ahora esta dentro de configuracion.
-//#define PWM_DUTY_RUN    32 -> ahora esta dentro de configuracion.
 #define DELAY_START_MS  10
 
 void motor_start(motor_handle_t *motor)

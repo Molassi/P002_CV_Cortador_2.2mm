@@ -63,5 +63,6 @@ D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/spiffs/libspiffs.
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Encoder/libEncoder.a
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/libMotor.a
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/libValvula.a
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Tareas/libTareas.a
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/main/libmain.a

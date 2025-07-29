@@ -4,4 +4,4 @@
 # iii) Dependencias de otros compoenentes (REQUIRES, PRIV_REQUIRES)
 idf_component_register(SRCS "P002_CV.c"                         # archivo principal.
                        INCLUDE_DIRS "."
-                       REQUIRES driver Encoder Motor Tareas freertos)
+                       REQUIRES driver Encoder Motor Valvula Tareas freertos)

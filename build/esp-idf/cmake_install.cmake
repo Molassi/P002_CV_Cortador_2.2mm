@@ -424,6 +424,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Tareas/cmake_install.cmake")
 endif()
 

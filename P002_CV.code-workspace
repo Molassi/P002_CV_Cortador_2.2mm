@@ -11,7 +11,8 @@
 			"sdkconfig.h": "c",
 			"ledc.h": "c",
 			"motor.h": "c",
-			"task.h": "c"
+			"task.h": "c",
+			"gpio.h": "c"
 		}
 	}
 }

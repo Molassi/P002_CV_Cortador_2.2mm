@@ -649,6 +649,13 @@ D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install/local.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Motor/CMakeFiles/install/strip.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/__idf_Valvula.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/edit_cache.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/rebuild_cache.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/list_install_components.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/install.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/install/local.dir
+D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Valvula/CMakeFiles/install/strip.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Tareas/CMakeFiles/__idf_Tareas.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Tareas/CMakeFiles/edit_cache.dir
 D:/Proyectos/COLVEN/P002_Cortador_2.2mm/Software/build/esp-idf/Tareas/CMakeFiles/rebuild_cache.dir

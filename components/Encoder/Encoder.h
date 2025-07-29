@@ -14,8 +14,9 @@ typedef struct {
 
 // Estructura para manejar el estado del encoder
 typedef struct {
-    encoder_config_t config;   // Parámetros de configuración
+    encoder_config_t config;       // Parámetros de configuración
     volatile int32_t pulse_count;  // Contador de pulsos (volatile porque se modifica en ISR)
+    uint8_t last_state;            // Aqui se guarda ultimo estado de pines AYB.
 } encoder_handle_t;
 
 // Inicializa el encoder con la configuración dada

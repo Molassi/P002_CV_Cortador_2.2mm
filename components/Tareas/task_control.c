@@ -2,12 +2,19 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/ledc.h"
+#include "esp_log.h"
+#include "freertos/portmacro.h"
 
 #include "Motor.h"
 #include "Encoder.h"
+#include "Valvula.h"
 
 extern motor_handle_t motor1;
 extern encoder_handle_t encoder1;
+extern valvula_handle_t valvula1;
+extern portMUX_TYPE encoder_mux;
+
+static const char *TAG = "Tareas";
 
 void task_control(void *pvParameters)
 {
@@ -18,24 +25,49 @@ void task_control(void *pvParameters)
         .pwm_channel = LEDC_CHANNEL_0,
         .pwm_timer = LEDC_TIMER_0,
         .pwm_duty_start = 60,
-        .pwm_duty_run = 32
+        .pwm_duty_run = 45
     };
 
     encoder_config_t encoder1_config = {
-        .pin_a = 34,
-        .pin_b = 35,
-        .pulses_per_rev = 600,
+        .pin_a = 14,
+        .pin_b = 27,
+        .pulses_per_rev = 2400,
         .distance_per_rev = 10.050
+    };
+
+    valvula_config_t valvula1_config = {
+        .gpio = 25
     };
 
     motor_init(&motor1, motor1_config);
     encoder_init(&encoder1, encoder1_config);
+    valvula_init(&valvula1, valvula1_config);
+
+    int32_t pulsos_actuales;
+
+    valvula_set(&valvula1, false); //apago valvula. (levantar)
 
     while (1) {
+        
+        //En teoría necesito 2396 pulsos - el motor da una vuelta.
         motor_start(&motor1);
-        vTaskDelay(pdMS_TO_TICKS(450)); //elimine la definicion de tiempo
+    
+        portENTER_CRITICAL(&encoder_mux);
+        pulsos_actuales = encoder1.pulse_count;
+        portEXIT_CRITICAL(&encoder_mux);
+        
+        if (pulsos_actuales >= 70) {
+            motor_stop(&motor1);
+            ESP_LOGI(TAG, "Pulsos contados: %" PRId32, pulsos_actuales);
+            encoder_reset(&encoder1);
+            vTaskDelay(pdMS_TO_TICKS(1000));
 
-        motor_stop(&motor1);
-        vTaskDelay(pdMS_TO_TICKS(1000)); //elimine la definicion de tiempo
+            valvula_set(&valvula1, true); //acitvo valvula. (subir)
+            vTaskDelay(pdMS_TO_TICKS(1500));
+            valvula_set(&valvula1, false); //apago valvula. (levantar)
+            vTaskDelay(pdMS_TO_TICKS(1500));
+
+        }
+        
     }
 }

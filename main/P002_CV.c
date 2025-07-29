@@ -10,10 +10,12 @@
 
 #include "Motor.h"
 #include "Encoder.h"
+#include "Valvula.h"
 #include "task_control.h"
 
 motor_handle_t motor1;
 encoder_handle_t encoder1;
+valvula_handle_t valvula1;
 
 bool isr_service_installed = false;
 
