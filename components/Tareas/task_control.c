@@ -44,10 +44,12 @@ void task_control(void *pvParameters)
     valvula_init(&valvula1, valvula1_config);
 
     int32_t pulsos_actuales;
+    int32_t cant_cortes = 500;
 
-    valvula_set(&valvula1, false); //apago valvula. (levantar)
+    valvula_set(&valvula1, false);  //apago valvula. (levantar)
+    valvula_reset_count(&valvula1); //reset de contador
 
-    while (1) {
+    while (valvula1.actuation_count < cant_cortes) {
         
         //En teoría necesito 2396 pulsos - el motor da una vuelta.
         motor_start(&motor1);
@@ -56,18 +58,20 @@ void task_control(void *pvParameters)
         pulsos_actuales = encoder1.pulse_count;
         portEXIT_CRITICAL(&encoder_mux);
         
-        if (pulsos_actuales >= 70) {
+        if (pulsos_actuales >= 67) {
             motor_stop(&motor1);
             ESP_LOGI(TAG, "Pulsos contados: %" PRId32, pulsos_actuales);
             encoder_reset(&encoder1);
-            vTaskDelay(pdMS_TO_TICKS(1000));
+            vTaskDelay(pdMS_TO_TICKS(300));
 
             valvula_set(&valvula1, true); //acitvo valvula. (subir)
-            vTaskDelay(pdMS_TO_TICKS(1500));
+            vTaskDelay(pdMS_TO_TICKS(600));
             valvula_set(&valvula1, false); //apago valvula. (levantar)
-            vTaskDelay(pdMS_TO_TICKS(1500));
+            vTaskDelay(pdMS_TO_TICKS(600));
 
         }
         
     }
+
+    while (valvula1.actuation_count >= cant_cortes) {} // Tienen que reiniciar.
 }
